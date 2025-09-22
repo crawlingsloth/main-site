@@ -1,35 +1,439 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>🦥 Crawling Sloth</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawling Sloth - AI-Powered Software & Automation</title>
+    <meta name="description" content="Transform your business with AI-powered software solutions and intelligent automation workflows. Custom development, landing pages, API integration, and high-performance web services.">
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            text-align: center; 
-            padding: 100px 20px; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            min-height: 100vh;
-            margin: 0;
+            padding: 2rem 0;
+            text-align: center;
         }
-        h1 { font-size: 4em; margin-bottom: 0.5em; }
-        .tagline { font-size: 1.2em; opacity: 0.9; margin-bottom: 2em; }
-        .status { 
-            background: rgba(255,255,255,0.2); 
-            padding: 1em; 
-            border-radius: 10px; 
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
             display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Approach Section */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approach-item {
+            text-align: center;
+        }
+
+        .approach-item h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* Technologies */
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tech-category strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        /* Why Choose Us */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>🦥 Crawling Sloth</h1>
-    <p class="tagline">Ironically fast landing page generation</p>
-    <div class="status">
-        <p>✅ Domain verified & configured!</p>
-        <p><code>crawlingsloth.cloud</code></p>
-    </div>
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1>🦥 Crawling Sloth</h1>
+                <p class="subtitle">Transform Your Business with AI-Powered Software & Automation</p>
+                <p>We build intelligent software solutions that automate complex workflows, integrate seamlessly with your systems, and leverage AI to solve real business problems.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What We Do Section -->
+    <section id="services">
+        <div class="container">
+            <h2>What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom AI Workflow Automation</h3>
+                    <p>Design and implement intelligent automation workflows tailored to your business. We build AI-powered systems that handle complex tasks, make decisions, and integrate seamlessly with your existing tools.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Landing Pages & Custom Webpages</h3>
+                    <p>Create high-converting landing pages and custom web experiences. Modern, responsive designs built with Next.js and React that load fast and engage your audience.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Manual Workflow Automation</h3>
+                    <p>Transform time-consuming manual processes into automated systems. Using tools like N8n, we connect your apps and eliminate repetitive tasks, freeing your team to focus on high-value work.</p>
+                </div>
+                <div class="service-card">
+                    <h3>API Development & Integration</h3>
+                    <p>Build robust APIs or connect existing services. We develop secure, scalable APIs and integrate disparate systems to create seamless data flows across your business.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Blazing Fast Web Services</h3>
+                    <p>Need performance? We build low-footprint, high-performance web services with Rust. Perfect for applications requiring speed, efficiency, and reliability at scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="section-alt">
+        <div class="container">
+            <h2>Our Approach</h2>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h3>Practical, Not Theoretical</h3>
+                    <p>We focus on solutions that work in the real world. Every project starts with understanding your actual needs, not imposing trendy tech for its own sake.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Built for Performance</h3>
+                    <p>From React-powered landing pages to Rust-based web services, we choose the right tool for each job—prioritizing speed, reliability, and maintainability.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>AI That Adds Value</h3>
+                    <p>We implement AI where it makes business sense—automating decisions, processing data, or enhancing user experiences. No buzzwords, just results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies">
+        <div class="container">
+            <h2>Technologies We Work With</h2>
+            <div class="tech-list">
+                <div class="tech-category">
+                    <strong>Backend:</strong> Python, Rust for high-performance services
+                </div>
+                <div class="tech-category">
+                    <strong>Frontend:</strong> Next.js, React for modern web experiences
+                </div>
+                <div class="tech-category">
+                    <strong>Automation:</strong> N8n for workflow orchestration
+                </div>
+                <div class="tech-category">
+                    <strong>AI/ML:</strong> Custom AI workflows and integrations
+                </div>
+                <div class="tech-category">
+                    <strong>Cloud & APIs:</strong> Scalable deployment and integration solutions
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section-alt">
+        <div class="container">
+            <h2>Why Choose Crawling Sloth?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Expertise in Modern Tech</h3>
+                    <p>We stay current with the latest developments in AI and software engineering, bringing cutting-edge capabilities to your projects.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Global Service, Local Expertise</h3>
+                    <p>Based in Singapore with experience serving clients worldwide. We work remotely or in person, adapting to your timezone and communication preferences.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>End-to-End Service</h3>
+                    <p>From initial consultation through development, deployment, and ongoing support—we're with you every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get Started</h2>
+            <p>Ready to automate your workflows or build your next software project?</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:hello@crawlingsloth.cloud">hello@crawlingsloth.cloud</a></p>
+                <p><strong>Location:</strong> Singapore</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>🦥 Crawling Sloth</h3>
+                    <p><strong>Location:</strong> Singapore</p>
+                    <p>© 2025 Crawling Sloth. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
